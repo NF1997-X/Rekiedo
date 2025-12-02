@@ -14,6 +14,7 @@ import { SavedLinksModal } from "@/components/saved-links-modal";
 import { HelpChatbot } from "@/components/help-chatbot";
 import { Footer } from "@/components/footer";
 import { BulkColorModal } from "@/components/bulk-color-modal";
+import { ZoomControl } from "@/components/zoom-control";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -83,6 +84,7 @@ export default function TablePage() {
   const [showHelpChatbot, setShowHelpChatbot] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
   const [bulkColorModalOpen, setBulkColorModalOpen] = useState(false);
+  const [showZoomControl, setShowZoomControl] = useState(false);
   const tableRef = useRef<HTMLDivElement>(null);
   const animationTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const { toast } = useToast();
@@ -1127,6 +1129,7 @@ export default function TablePage() {
           onSavedLinks={() => setSavedLinksModalOpen(true)}
           onShowHelp={() => setShowHelpChatbot(true)}
           onBulkColorEdit={() => setBulkColorModalOpen(true)}
+          onShowZoom={() => setShowZoomControl(true)}
           onAddColumn={async (columnData) => {
             try {
               const newColumn = await createColumn.mutateAsync(columnData);
@@ -1155,7 +1158,7 @@ export default function TablePage() {
       </div>
       <main className="fixed inset-0 bg-gray-50 dark:bg-[#0a0a0a] pt-[72px] pb-24 overflow-y-auto">
         <div className="w-full flex justify-center mt-[5%]">
-          <div className="max-w-3xl w-full px-6 py-8" data-testid="table-page">
+          <div id="zoomable-content" className="max-w-3xl w-full px-6 py-8" data-testid="table-page">
           {/* Header Section - Carousel with Pages */}
           <div className="mb-8 relative animate-in fade-in slide-in-from-top-2 duration-600 delay-300">
             {sortedPages.length > 0 ? (
@@ -1937,6 +1940,12 @@ export default function TablePage() {
       <HelpChatbot 
         open={showHelpChatbot}
         onOpenChange={setShowHelpChatbot}
+      />
+
+      {/* Zoom Control */}
+      <ZoomControl 
+        isOpen={showZoomControl}
+        onClose={() => setShowZoomControl(false)}
       />
 
         </div>

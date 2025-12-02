@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { LayoutGrid, Moon, Sun, DoorOpen, Save, ListChecks, Bookmark, BookOpen, Link2, Table2, Rows, Plus, Layout, Palette, RouteIcon, Receipt, Sparkles } from "lucide-react";
+import { LayoutGrid, Moon, Sun, DoorOpen, Save, ListChecks, Bookmark, BookOpen, Link2, Table2, Rows, Plus, Layout, Palette, RouteIcon, Receipt, Sparkles, ZoomIn } from "lucide-react";
 import { useLocation } from "wouter";
 
 interface NavigationProps {
@@ -17,12 +17,13 @@ interface NavigationProps {
   onSavedLinks?: () => void;
   onShowHelp?: () => void;
   onBulkColorEdit?: () => void;
+  onShowZoom?: () => void;
   isAuthenticated?: boolean;
   theme?: string;
   onSetTheme?: (theme: 'dark' | 'light') => void;
 }
 
-export function Navigation({ editMode, onEditModeRequest, onShowCustomization, onAddRow, onSaveData, onGenerateTng, onAddColumn, onOptimizeRoute, onCalculateTolls, onSaveLayout, onSavedLinks, onShowHelp, onBulkColorEdit, isAuthenticated, theme, onSetTheme }: NavigationProps) {
+export function Navigation({ editMode, onEditModeRequest, onShowCustomization, onAddRow, onSaveData, onGenerateTng, onAddColumn, onOptimizeRoute, onCalculateTolls, onSaveLayout, onSavedLinks, onShowHelp, onBulkColorEdit, onShowZoom, isAuthenticated, theme, onSetTheme }: NavigationProps) {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [menuOpen, setMenuOpen] = useState(false);
   const [, navigate] = useLocation();
@@ -274,6 +275,14 @@ export function Navigation({ editMode, onEditModeRequest, onShowCustomization, o
           )}
 
           <div className="h-px bg-black/10 dark:bg-white/10 my-1" />
+
+          <button
+            onClick={() => { onShowZoom?.(); setMenuOpen(false); }}
+            className="w-full text-left px-4 py-3 text-black/90 dark:text-white/90 hover:bg-black/5 dark:hover:bg-white/10 rounded-lg transition-all duration-200 ease-out text-sm flex items-center gap-3 hover:scale-[1.02] active:scale-[0.98]"
+          >
+            <ZoomIn className="w-4 h-4" />
+            Zoom Control
+          </button>
 
           <button
             onClick={() => { onShowHelp?.(); setMenuOpen(false); }}
