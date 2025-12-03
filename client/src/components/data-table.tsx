@@ -1031,14 +1031,13 @@ export function DataTable({
                 onClick={onShowCustomization}
                 variant="outline"
                 size="sm"
-                className="h-8 px-3 pagination-button rounded-lg text-xs"
+                className="h-8 w-8 p-0 pagination-button rounded-lg"
                 title="Customize Columns"
                 data-testid="button-customize-columns"
               >
                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                 </svg>
-                <span className="hidden sm:inline ml-1.5">Customize</span>
               </Button>
             )}
             {onOptimizeRoute && (
@@ -1046,12 +1045,11 @@ export function DataTable({
                 onClick={onOptimizeRoute}
                 variant="outline"
                 size="sm"
-                className="h-8 px-3 pagination-button rounded-lg text-xs"
+                className="h-8 w-8 p-0 pagination-button rounded-lg"
                 title="Route Optimization"
                 data-testid="button-optimize-route"
               >
                 <Route className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline ml-1.5">Optimize</span>
               </Button>
             )}
             {onShareTable && !hideShareButton && (
@@ -1059,12 +1057,11 @@ export function DataTable({
                 onClick={onShareTable}
                 variant="outline"
                 size="sm"
-                className="h-8 px-3 pagination-button rounded-lg text-xs"
+                className="h-8 w-8 p-0 pagination-button rounded-lg"
                 title="Share Table"
                 data-testid="button-share-table"
               >
                 <Share2 className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline ml-1.5">Share</span>
               </Button>
             )}
           </div>
