@@ -1186,10 +1186,10 @@ export default function TablePage() {
                     >
                       {/* Header Bar */}
                       <div 
-                        className="flex items-center justify-between px-6 py-3 cursor-pointer hover:bg-blue-100/50 dark:hover:bg-blue-900/30 ocean:hover:bg-cyan-900/30 transition-colors duration-300 text-sm"
+                        className="flex items-center justify-center px-6 py-3 cursor-pointer hover:bg-blue-100/50 dark:hover:bg-blue-900/30 ocean:hover:bg-cyan-900/30 transition-colors duration-300 text-sm"
                         onClick={() => setIsHeaderExpanded(!isHeaderExpanded)}
                       >
-                        <div className="flex items-center gap-3 flex-1">
+                        <div className="flex items-center gap-3 justify-center flex-1">
                           {/* Left Swipe Hint - Animated Arrows */}
                           {sortedPages.length > 1 && showSlideHints && (
                             <div className="flex items-center gap-0.5">
@@ -1214,7 +1214,7 @@ export default function TablePage() {
                             </div>
                           )}
                           
-                          <h1 className="font-bold text-gray-500 dark:text-blue-300" style={{fontSize: '12px'}} data-testid={`page-title-${page.id}`}>
+                          <h1 className="font-bold text-gray-500 dark:text-blue-300 text-center" style={{fontSize: '12px'}} data-testid={`page-title-${page.id}`}>
                             {page.title || "Untitled"}
                           </h1>
                           

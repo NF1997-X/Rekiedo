@@ -47,7 +47,7 @@ export function AddImageSection({ rowId, location, onClose, onAddImage, allMedia
 
   return (
     <>
-      <Card className="bg-card/90 backdrop-blur-xl border-2 border-border shadow-2xl rounded-xl mb-6" data-testid="add-image-section">
+      <Card className="bg-card/90 backdrop-blur-xl border-2 border-border shadow-md rounded-xl mb-6" data-testid="add-image-section">
         <CardContent className="p-6">
           <h3 className="font-semibold mb-6 flex items-center text-foreground text-center justify-center text-sm">
             <ImageIcon className="w-4 h-4 mr-2 text-primary" />

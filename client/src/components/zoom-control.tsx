@@ -110,7 +110,7 @@ export function ZoomControl({ isOpen = false, onClose, onZoomChange }: ZoomContr
   return (
     <div
       ref={controlRef}
-      className="fixed bottom-20 left-1/2 transform -translate-x-1/2 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-2 border-blue-500/30 dark:border-blue-400/30 rounded-full shadow-lg px-4 py-2"
+      className="fixed bottom-20 left-1/2 transform -translate-x-1/2 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-2 border-blue-500/30 dark:border-blue-400/30 rounded-full shadow-sm px-4 py-2"
       style={{ userSelect: 'none' }}
     >
       <div className="flex items-center gap-3">

@@ -381,7 +381,7 @@ export function MediaUploadModal({ open, onOpenChange, onSave, onSaveMultiple }:
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-3m max-h-[90vh] flex flex-col bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-2xl rounded-xl">
+      <DialogContent className="max-w-3m max-h-[90vh] flex flex-col bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-md rounded-xl">
         <DialogHeader className="flex-shrink-0 text-center">
           <DialogTitle className="flex items-center justify-center gap-2 text-center text-sm font-semibold">
             {mode === "single" ? <Upload className="w-5 h-5" /> : <List className="w-5 h-5" />}
@@ -706,7 +706,7 @@ export function MediaUploadModal({ open, onOpenChange, onSave, onSaveMultiple }:
           <Button 
             onClick={handleSave}
             disabled={mode === "single" ? !url.trim() : albumItems.length === 0}
-            className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white border-0 shadow-lg shadow-blue-500/30"
+            className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white border-0 shadow-sm shadow-blue-500/30"
           >
             <Upload className="w-4 h-4 mr-2" />
             {mode === "single" 

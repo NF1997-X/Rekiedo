@@ -175,7 +175,7 @@ export function ColumnCustomizationModal({
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           className={`flex items-center justify-between p-3 rounded-lg border bg-muted/30 hover:bg-muted/50 transition-colors ${
-                            snapshot.isDragging ? 'shadow-lg border-blue-500 dark:border-blue-400' : 'border-border'
+                            snapshot.isDragging ? 'shadow-sm border-blue-500 dark:border-blue-400' : 'border-border'
                           } ${!column.visible ? 'opacity-60' : ''}`}
                         >
                           <div className="flex items-center gap-3">

@@ -146,7 +146,7 @@ function MobileTooltip({ content, children, showBelow = false }: MobileTooltipPr
         <div 
           className={`absolute left-0 z-[100] pointer-events-none ${showBelow ? 'top-full mt-2' : 'bottom-full mb-2'}`}
         >
-          <div className="px-3 py-2 text-xs bg-gray-900 dark:bg-gray-800 text-white rounded-lg shadow-2xl whitespace-nowrap border border-gray-700">
+          <div className="px-3 py-2 text-xs bg-gray-900 dark:bg-gray-800 text-white rounded-lg shadow-md whitespace-nowrap border border-gray-700">
             {content}
           </div>
           <div className={`absolute left-4 w-0 h-0 border-4 border-transparent ${showBelow ? 'bottom-full border-b-gray-900 dark:border-b-gray-800' : 'top-full border-t-gray-900 dark:border-t-gray-800'}`} />
@@ -778,11 +778,12 @@ export function DataTable({
 
   return (
     <div
-      className="border border-gray-200/60 dark:border-gray-800/60 shadow-2xl shadow-black/10 dark:shadow-black/30 table-container my-10 rounded-2xl overflow-hidden bg-white dark:bg-gray-900/90"
+      className="border border-gray-200/60 dark:border-gray-800/60 shadow-md shadow-black/10 dark:shadow-black/30 table-container my-10 rounded-2xl overflow-hidden bg-white dark:bg-gray-900/90"
       data-testid="data-table"
     >
       {/* Single Row: Filter/Sort/Search + Action Buttons */}
       <div className="flex justify-between items-center px-6 py-3 border-b border-gray-200/60 dark:border-gray-800/60 bg-gray-50/50 dark:bg-gray-950/50 shadow-sm transition-all duration-500">
+        {/* Left Side: Sort, Filter, and Action Buttons */}
         <div className="flex items-center gap-2 flex-shrink-0">
           {/* Custom Toolbar Content */}
           {customToolbarContent && (
@@ -997,10 +998,54 @@ export function DataTable({
             </PopoverContent>
           </Popover>
           </div>
+          
+          {/* Action Buttons - Moved to left */}
+          {!isSharedView && (
+            <>
+              {onShowCustomization && (
+                <Button
+                  onClick={onShowCustomization}
+                  variant="outline"
+                  size="sm"
+                  className="h-8 w-8 p-0 pagination-button rounded-lg"
+                  title="Customize Columns"
+                  data-testid="button-customize-columns"
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                  </svg>
+                </Button>
+              )}
+              {onOptimizeRoute && (
+                <Button
+                  onClick={onOptimizeRoute}
+                  variant="outline"
+                  size="sm"
+                  className="h-8 w-8 p-0 pagination-button rounded-lg"
+                  title="Route Optimization"
+                  data-testid="button-optimize-route"
+                >
+                  <Route className="w-3.5 h-3.5" />
+                </Button>
+              )}
+              {onShareTable && !hideShareButton && (
+                <Button
+                  onClick={onShareTable}
+                  variant="outline"
+                  size="sm"
+                  className="h-8 w-8 p-0 pagination-button rounded-lg"
+                  title="Share Table"
+                  data-testid="button-share-table"
+                >
+                  <Share2 className="w-3.5 h-3.5" />
+                </Button>
+              )}
+            </>
+          )}
         </div>
         
-        {/* Middle: Search Input */}
-        <div className="flex-1 max-w-[30%] lg:max-w-md ml-4 flex items-center gap-2">
+        {/* Right Side: Search Input - Takes remaining space */}
+        <div className="flex-1 flex items-center gap-2 ml-4">
           <div className="relative group flex-1">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-3 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
             <Input
@@ -1022,50 +1067,6 @@ export function DataTable({
             )}
           </div>
         </div>
-        
-        {/* Right Side: Action Buttons */}
-        {!isSharedView && (
-          <div className="flex items-center gap-2 ml-auto flex-shrink-0">
-            {onShowCustomization && (
-              <Button
-                onClick={onShowCustomization}
-                variant="outline"
-                size="sm"
-                className="h-8 w-8 p-0 pagination-button rounded-lg"
-                title="Customize Columns"
-                data-testid="button-customize-columns"
-              >
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-                </svg>
-              </Button>
-            )}
-            {onOptimizeRoute && (
-              <Button
-                onClick={onOptimizeRoute}
-                variant="outline"
-                size="sm"
-                className="h-8 w-8 p-0 pagination-button rounded-lg"
-                title="Route Optimization"
-                data-testid="button-optimize-route"
-              >
-                <Route className="w-3.5 h-3.5" />
-              </Button>
-            )}
-            {onShareTable && !hideShareButton && (
-              <Button
-                onClick={onShareTable}
-                variant="outline"
-                size="sm"
-                className="h-8 w-8 p-0 pagination-button rounded-lg"
-                title="Share Table"
-                data-testid="button-share-table"
-              >
-                <Share2 className="w-3.5 h-3.5" />
-              </Button>
-            )}
-          </div>
-        )}
       </div>
       {/* Active Filters Display */}
       {(searchTerm || filterValue.length > 0 || deliveryFilterValue.length > 0) && (
@@ -1137,7 +1138,7 @@ export function DataTable({
             {/* Scrollable Container for Header, Body, Footer */}
             <div className="overflow-x-auto overflow-y-auto max-h-[700px]">
               <Table className="min-w-full">
-                <TableHeader className="sticky top-0 z-20 [&_tr]:border-b [&_tr]:border-slate-300 dark:[&_tr]:border-blue-500/20 shadow-lg bg-gradient-to-b from-slate-200 to-slate-100 dark:from-blue-900/30 dark:to-blue-950/20">
+                <TableHeader className="sticky top-0 z-20 [&_tr]:border-b [&_tr]:border-slate-300 dark:[&_tr]:border-blue-500/20 shadow-[inset_0_-2px_4px_rgba(50,50,50,0.3)] dark:shadow-[inset_0_-2px_4px_rgba(0,0,0,0.3)] bg-gradient-to-b from-slate-200 to-slate-100 dark:from-blue-900/30 dark:to-blue-950/20">
               <Droppable
                 droppableId="columns"
                 direction="horizontal"
@@ -1159,7 +1160,7 @@ export function DataTable({
                           <TableHead
                             ref={provided.innerRef}
                             {...provided.draggableProps}
-                            className="px-4 py-2 text-center table-header-footer-12px font-semibold tracking-wide sticky top-0 whitespace-nowrap border-transparent text-blue-800 dark:text-blue-300"
+                            className="px-4 py-2 text-center table-header-footer-12px font-semibold tracking-wide sticky top-0 whitespace-nowrap border-transparent text-blue-800 dark:text-blue-300 [text-shadow:_0_1px_2px_rgb(100_100_100_/_0.4)] dark:[text-shadow:_0_1px_2px_rgb(0_0_0_/_0.3)]"
                             style={{
                               textAlign: "center",
                               textDecoration: "normal",
@@ -1749,7 +1750,7 @@ export function DataTable({
             </Droppable>
             
             {/* Table Footer */}
-            <tfoot className="sticky bottom-0 z-20 shadow-lg bg-gradient-to-t from-slate-200 to-slate-100 dark:from-blue-900/30 dark:to-blue-950/20">
+            <tfoot className="sticky bottom-0 z-20 shadow-[inset_0_2px_4px_rgba(50,50,50,0.3)] dark:shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)] bg-gradient-to-t from-slate-200 to-slate-100 dark:from-blue-900/30 dark:to-blue-950/20">
               <TableRow className="border-t border-slate-300 dark:border-blue-500/20">
                 {visibleColumns.map((column, index) => (
                   <TableCell
@@ -1819,7 +1820,7 @@ export function DataTable({
                       <SelectItem value="999999">{filteredRowsCount}</SelectItem>
                     </SelectContent>
                   </Select>
-                  <span className="whitespace-nowrap flex-shrink-0 font-semibold text-blue-800 dark:text-blue-300">
+                  <span className="whitespace-nowrap flex-shrink-0 font-semibold text-blue-800 dark:text-blue-300 [text-shadow:_0_1px_2px_rgb(100_100_100_/_0.4)] dark:[text-shadow:_0_1px_2px_rgb(0_0_0_/_0.3)]">
                     Showing {((currentPage - 1) * pageSize) + 1} to {Math.min(currentPage * pageSize, filteredRowsCount)} of {filteredRowsCount} items in {totalPages} pages
                   </span>
                 </div>

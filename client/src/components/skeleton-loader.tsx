@@ -187,7 +187,7 @@ export function LoadingOverlay({ message = "Loading...", type = "pulse" }: { mes
         <div className="w-72 space-y-2">
           <div className="h-1.5 bg-white/10 rounded-full overflow-hidden relative">
             <div 
-              className="h-full bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 rounded-full shadow-lg shadow-blue-500/50 transition-all duration-100 ease-linear"
+              className="h-full bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 rounded-full shadow-sm shadow-blue-500/50 transition-all duration-100 ease-linear"
               style={{ width: `${progress}%` }}
             ></div>
           </div>

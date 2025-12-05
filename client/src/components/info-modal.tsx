@@ -675,7 +675,7 @@ export function InfoModal({ info, rowId, code, route, location, latitude, longit
           <div className={`flex justify-center items-center w-full transition-all duration-500 ease-out my-2 ${showActionsMenu ? 'opacity-0 pointer-events-none scale-50' : 'opacity-100 scale-100'}`}>
             <Button
               variant="ghost"
-              className="h-11 w-11 p-0 bg-gradient-to-br from-blue-500/10 to-blue-600/10 dark:from-blue-400/10 dark:to-blue-500/10 border border-blue-500/20 hover:border-blue-500/40 hover:from-blue-500/20 hover:to-blue-600/20 shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 hover:scale-110 active:scale-95 transition-all duration-300 rounded-2xl backdrop-blur-sm"
+              className="h-11 w-11 p-0 bg-gradient-to-br from-blue-500/10 to-blue-600/10 dark:from-blue-400/10 dark:to-blue-500/10 border border-blue-500/20 hover:border-blue-500/40 hover:from-blue-500/20 hover:to-blue-600/20 shadow-sm shadow-blue-500/20 hover:shadow-md hover:shadow-blue-500/30 hover:scale-110 active:scale-95 transition-all duration-300 rounded-2xl backdrop-blur-sm"
               onClick={() => setShowActionsMenu(!showActionsMenu)}
               data-testid="button-actions-menu"
             >
@@ -1091,7 +1091,7 @@ export function InfoModal({ info, rowId, code, route, location, latitude, longit
       {/* Success Message */}
       {showSuccessMessage && (
         <div className="fixed top-4 right-4 z-[100] animate-in slide-in-from-top-2 duration-300">
-          <Alert className="bg-green-600 text-white border-green-700 shadow-lg">
+          <Alert className="bg-green-600 text-white border-green-700 shadow-sm">
             <CheckCircle className="h-4 w-4" />
             <AlertDescription className="ml-2">
               <strong>Success!</strong> Information saved successfully.

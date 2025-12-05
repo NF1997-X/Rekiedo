@@ -185,7 +185,7 @@ function BackToCurrentButton({
         variant="outline"
         size="sm"
         onClick={handleBackToCurrent}
-        className="bg-white/95 hover:bg-white shadow-lg border-2 border-blue-500 hover:border-blue-600 backdrop-blur-sm"
+        className="bg-white/95 hover:bg-white shadow-sm border-2 border-blue-500 hover:border-blue-600 backdrop-blur-sm"
         data-testid="button-back-to-current"
         title="Back to current location"
       >
@@ -364,7 +364,7 @@ export const MiniMap = memo(function MiniMap({
               <Button
                 variant="outline"
                 size="sm"
-                className="bg-white/95 hover:bg-white shadow-lg border-2 border-gray-400 backdrop-blur-sm pointer-events-auto"
+                className="bg-white/95 hover:bg-white shadow-sm border-2 border-gray-400 backdrop-blur-sm pointer-events-auto"
                 data-testid="button-fullscreen-map"
               >
                 <Maximize2 className="w-4 h-4 text-black" />
