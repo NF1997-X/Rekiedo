@@ -782,7 +782,7 @@ export function DataTable({
       data-testid="data-table"
     >
       {/* Single Row: Filter/Sort/Search + Action Buttons */}
-      <div className="flex justify-between items-center px-6 py-3 border-b border-gray-200/60 dark:border-gray-800/60 bg-gradient-to-b from-gray-50/50 to-white/50 dark:from-gray-800/30 dark:to-gray-900/30 backdrop-blur-sm shadow-sm transition-all duration-500">
+      <div className="flex justify-between items-center px-6 py-3 border-b border-gray-200/60 dark:border-gray-800/60 bg-gray-50/50 dark:bg-gray-950/50 shadow-sm transition-all duration-500">
         <div className="flex items-center gap-2 flex-shrink-0">
           {/* Custom Toolbar Content */}
           {customToolbarContent && (
@@ -1069,7 +1069,7 @@ export function DataTable({
       </div>
       {/* Active Filters Display */}
       {(searchTerm || filterValue.length > 0 || deliveryFilterValue.length > 0) && (
-        <div className="px-6 py-2 border-b border-gray-200/60 dark:border-gray-800/60 bg-gradient-to-b from-gray-50/50 to-white/50 dark:from-gray-800/30 dark:to-gray-900/30 backdrop-blur-sm">
+        <div className="px-6 py-2 border-b border-gray-200/60 dark:border-gray-800/60 bg-gray-50/50 dark:bg-gray-950/50">
           <div className="flex flex-wrap items-center gap-1">
             <span className="text-gray-700 dark:text-gray-300 font-semibold text-xs">Active:</span>
             {searchTerm && (
@@ -1269,20 +1269,20 @@ export function DataTable({
                                   // Main page (NOT shared view): only dim if power off (inactive)
                                   if (!isSharedView) {
                                     if (row.active === false) {
-                                      return "bg-slate-300 dark:bg-gray-700/60 opacity-50";
+                                      return "bg-slate-300 dark:bg-gray-800 opacity-50";
                                     } else {
-                                      return "bg-white dark:bg-blue-900/10";
+                                      return "bg-white dark:bg-gray-900";
                                     }
                                   }
                                   
                                   // Shared view & custom table: apply schedule-based styling
                                   const status = getScheduleStatus(row);
                                   if (status === 'inactive') {
-                                    return "bg-slate-300 dark:bg-gray-700/60 opacity-50";
+                                    return "bg-slate-300 dark:bg-gray-800 opacity-50";
                                   } else if (status === 'off-schedule') {
-                                    return "bg-white dark:bg-blue-900/10 opacity-60";
+                                    return "bg-white dark:bg-gray-900 opacity-60";
                                   } else {
-                                    return "bg-white dark:bg-blue-900/10";
+                                    return "bg-white dark:bg-gray-900";
                                   }
                                 })()
                               } hover:bg-slate-50 hover:shadow-md dark:hover:bg-blue-800/20 dark:hover:shadow-[0_2px_12px_rgba(59,130,246,0.25)] transition-all duration-300 hover:-translate-y-0.5 border-b border-slate-200 dark:border-blue-700/20 ${
@@ -1802,7 +1802,7 @@ export function DataTable({
 
           {/* Pagination Controls */}
           {!disablePagination && (
-            <div className="flex flex-col items-center justify-center gap-1.5 px-4 py-3 border-t border-gray-200/60 dark:border-gray-800/60 bg-gradient-to-b from-white/50 to-gray-50/50 dark:from-gray-900/30 dark:to-gray-800/30 backdrop-blur-sm shadow-sm transition-all duration-500">
+            <div className="flex flex-col items-center justify-center gap-1.5 px-4 py-3 border-t border-gray-200/60 dark:border-gray-800/60 bg-transparent shadow-sm transition-all duration-500">
               
               <div className="flex items-center justify-between gap-1 w-full">
                 {/* Left: Entries per page selector with showing text */}

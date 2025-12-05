@@ -381,7 +381,7 @@ export function MediaUploadModal({ open, onOpenChange, onSave, onSaveMultiple }:
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-3m max-h-[90vh] flex flex-col bg-white/95 dark:bg-black/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 shadow-2xl rounded-xl">
+      <DialogContent className="max-w-3m max-h-[90vh] flex flex-col bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-2xl rounded-xl">
         <DialogHeader className="flex-shrink-0 text-center">
           <DialogTitle className="flex items-center justify-center gap-2 text-center text-sm font-semibold">
             {mode === "single" ? <Upload className="w-5 h-5" /> : <List className="w-5 h-5" />}
@@ -394,7 +394,7 @@ export function MediaUploadModal({ open, onOpenChange, onSave, onSaveMultiple }:
 
         <div className="mt-6 space-y-6 overflow-y-auto flex-1 pr-2 px-2">
           {/* Mode Selection */}
-          <div className="bg-gray-50 dark:bg-black/50 backdrop-blur-sm border border-gray-200 dark:border-white/15 rounded-lg p-4">
+          <div className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4">
             <Label className="text-sm font-medium text-foreground/90 mb-3 block">
               📁 Upload Mode
             </Label>
@@ -510,7 +510,7 @@ export function MediaUploadModal({ open, onOpenChange, onSave, onSaveMultiple }:
                           : "https://example.com/image.jpg"}
                         value={url}
                         onChange={(e) => setUrl(e.target.value)}
-                        className="bg-white dark:bg-black/60 border-gray-300 dark:border-white/20 backdrop-blur-sm text-sm"
+                        className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-sm"
                       />
                       {mediaType === "video" && url && (
                         <p className="text-xs text-muted-foreground">
@@ -532,7 +532,7 @@ export function MediaUploadModal({ open, onOpenChange, onSave, onSaveMultiple }:
                         placeholder="https://example.com/thumbnail.jpg"
                         value={thumbnail}
                         onChange={(e) => setThumbnail(e.target.value)}
-                        className="bg-white dark:bg-black/60 border-gray-300 dark:border-white/20 backdrop-blur-sm text-sm"
+                        className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-sm"
                       />
                     </div>
                   )}
@@ -548,7 +548,7 @@ export function MediaUploadModal({ open, onOpenChange, onSave, onSaveMultiple }:
                       value={caption}
                       onChange={(e) => setCaption(e.target.value)}
                       rows={2}
-                      className="bg-white dark:bg-black/60 border-gray-300 dark:border-white/20 backdrop-blur-sm text-sm"
+                      className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-sm"
                     />
                   </div>
                 </div>
@@ -557,7 +557,7 @@ export function MediaUploadModal({ open, onOpenChange, onSave, onSaveMultiple }:
               <TabsContent value="album" className="mt-4">
                 <div className="space-y-4">
                   {/* Upload from Gallery (Album mode) */}
-                  <div className="bg-green-50 dark:bg-black/20 backdrop-blur-sm border border-green-200 dark:border-white/10 rounded-lg p-3">
+                  <div className="bg-green-50 dark:bg-gray-800 border border-green-200 dark:border-gray-700 rounded-lg p-3">
                     <Label className="text-sm font-medium text-foreground/90 mb-2 block">📁 Upload from Gallery</Label>
                     <input
                       type="file"
@@ -604,7 +604,7 @@ export function MediaUploadModal({ open, onOpenChange, onSave, onSaveMultiple }:
                   </div>
 
                   {/* Single Item Add */}
-                  <div className="bg-blue-50 dark:bg-black/20 backdrop-blur-sm border border-blue-200 dark:border-white/10 rounded-lg p-3">
+                  <div className="bg-blue-50 dark:bg-gray-800 border border-blue-200 dark:border-gray-700 rounded-lg p-3">
                     <Label className="text-sm font-medium text-foreground/90 mb-2 block">Add URL Item to Album</Label>
                     <div className="space-y-2">
                       <Input
@@ -614,14 +614,14 @@ export function MediaUploadModal({ open, onOpenChange, onSave, onSaveMultiple }:
                           : "Image URL..."}
                         value={url}
                         onChange={(e) => setUrl(e.target.value)}
-                        className="bg-white dark:bg-black/60 border-gray-300 dark:border-white/20 backdrop-blur-sm text-sm"
+                        className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-sm"
                       />
                       <div className="flex gap-2">
                         <Input
                           placeholder="Caption (optional)"
                           value={caption}
                           onChange={(e) => setCaption(e.target.value)}
-                          className="flex-1 bg-white dark:bg-black/40 border-gray-300 dark:border-white/15 backdrop-blur-sm"
+                          className="flex-1 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700"
                         />
                         <Button
                           type="button"
@@ -636,14 +636,14 @@ export function MediaUploadModal({ open, onOpenChange, onSave, onSaveMultiple }:
                   </div>
 
                   {/* Bulk Add */}
-                  <div className="bg-purple-50 dark:bg-black/20 backdrop-blur-sm border border-purple-200 dark:border-white/10 rounded-lg p-3">
+                  <div className="bg-purple-50 dark:bg-gray-800 border border-purple-200 dark:border-gray-700 rounded-lg p-3">
                     <Label className="text-sm font-medium text-foreground/90 mb-2 block">Bulk Add URLs</Label>
                     <Textarea
                       placeholder="Paste multiple URLs (one per line)..."
                       value={bulkUrls}
                       onChange={(e) => setBulkUrls(e.target.value)}
                       rows={3}
-                      className="bg-white dark:bg-black/60 border-gray-300 dark:border-white/20 backdrop-blur-sm text-sm"
+                      className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-sm"
                     />
                     <Button
                       type="button"
@@ -659,13 +659,13 @@ export function MediaUploadModal({ open, onOpenChange, onSave, onSaveMultiple }:
 
                   {/* Album Preview */}
                   {albumItems.length > 0 && (
-                    <div className="bg-purple-50 dark:bg-black/20 backdrop-blur-sm border border-purple-200 dark:border-white/10 rounded-lg p-3">
+                    <div className="bg-purple-50 dark:bg-gray-800 border border-purple-200 dark:border-gray-700 rounded-lg p-3">
                       <Label className="text-sm font-medium text-foreground/90 mb-3 block">
                         📚 Album Preview ({albumItems.length} items)
                       </Label>
                       <div className="space-y-2 max-h-40 overflow-y-auto">
                         {albumItems.map((item, index) => (
-                          <div key={index} className="flex items-center gap-2 p-2 bg-white dark:bg-white/5 rounded border border-purple-200 dark:border-white/10">
+                          <div key={index} className="flex items-center gap-2 p-2 bg-white dark:bg-gray-900 rounded border border-purple-200 dark:border-gray-700">
                             {item.type === "video" ? (
                               <PlayCircle className="w-4 h-4 text-purple-400 flex-shrink-0" />
                             ) : (
@@ -694,11 +694,11 @@ export function MediaUploadModal({ open, onOpenChange, onSave, onSaveMultiple }:
           </div>
         </div>
 
-        <DialogFooter className="space-x-3 flex-shrink-0 mt-6 border-t border-gray-200 dark:border-white/15 pt-4 bg-gray-50 dark:bg-black/50 backdrop-blur-sm rounded-b-xl -mx-6 -mb-6 px-6 py-4">
+        <DialogFooter className="space-x-3 flex-shrink-0 mt-6 border-t border-gray-200 dark:border-gray-700 pt-4 bg-gray-50 dark:bg-gray-800 rounded-b-xl -mx-6 -mb-6 px-6 py-4">
           <Button 
             variant="outline" 
             onClick={handleCancel}
-            className="border-red-600 text-red-600 hover:bg-red-50 dark:border-red-500 dark:text-red-500 dark:hover:bg-red-950/30 backdrop-blur-sm"
+            className="border-red-600 text-red-600 hover:bg-red-50 dark:border-red-500 dark:text-red-500 dark:hover:bg-red-900/50"
           >
             <X className="w-4 h-4 mr-2" />
             Cancel
